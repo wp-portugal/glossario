@@ -24,23 +24,25 @@ Na linguística, termo é a representação de uma
 
 Neste `README` estamos nos referindo aos _termos de um glossário_.
 
-## Escopo
+## Propósitos
 
 Um plugin administrado exclusivamente pelo admin do WordPress com um _custom
 post type_ para exibição de um glossário de traduções, exibindo a palavra que
 deve ser utilizada para determinados contextos de tradução.
 
 O objetivo da manutenção de um glossário para traduções é ter uma base de
-referência para traduções colaborativas.
+referência para traduções colaborativas de projetos que utilizem o sistema
+[gettext](http://www.gnu.org/software/gettext/).
 
-Para a Comunidade Brasileira de WordPress, o objetivo específico é possibilitar
-e incentivar a colaboratividade das traduções, oferecendo uma base de
-referência para realização de traduções das novas versões do WordPress conforme
-as discussões já realizadas na comunidade quanto à forma e significado dos
-termos envolvidos.
+Para as Comunidades Brasileira e Portuguesa de WordPress, o objetivo específico
+é possibilitar e incentivar a colaboratividade das traduções, oferecendo uma
+base de referência para realização de traduções das novas versões do WordPress
+conforme as discussões já realizadas nas comunidades quanto à forma e
+significado dos termos envolvidos.
 
-Um primeiro glossário já foi feito e pode ser conferido
-[aqui](http://wp-brasil.org/glossario/).
+Este trabalho foi proposto inicialmente devido aos glossários já existentes da
+[Comunidade Brasileira](http://wp-brasil.org/glossario/) e da [Comunidade
+Portuguesa](http://palheta.wp-portugal.com/glossario-ingles-portugues-pos-acordo-ortografico-draft/).
 
 ## Especificação inicial
 
@@ -54,12 +56,12 @@ seguintes campos:
 * Tradução do termo
 * Tradução do plural do termo
 * Notas sobre a tradução
-* Status da tradução (consolidado, aberto para sugestões)
 
 #### Taxonomias envolvidas:
 
-* Classes morfológica (artigo, substantivo, verbo, adjetivo)
 * Idioma
+* Classes morfológica (artigo, substantivo, verbo, adjetivo)
+* Estado da tradução (consolidado, aberto para sugestões)
 
 #### Comentários
 
