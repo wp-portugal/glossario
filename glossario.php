@@ -8,9 +8,11 @@
  * Author URI: http://github.com/wpbrasil/glossario
  */
 
+include( dirname( __FILE__ ) . '/glossario-metabox.php' );
+
 class Glossario {
 
-	var $slug = 'glossario';
+	public static $slug = 'glossario';
 	var $post_term = 'glossario_term';
 	var $post_pofile = 'glossario_po_file';
 	var $tax_language = 'glossario_term_language';
@@ -19,6 +21,7 @@ class Glossario {
 
 	function Glossario() {
 		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
 	function activate() {
@@ -36,6 +39,10 @@ class Glossario {
 	function init() {
 		$this->register_custom_post_types();
 		$this->register_custom_taxonomies();
+	}
+
+	function admin_init() {
+		$this->add_meta_boxes();
 	}
 
 	function register_custom_post_types() {
@@ -149,6 +156,50 @@ class Glossario {
 		foreach ( $taxonomies as $taxonomy => $args ) {
 			register_taxonomy( $taxonomy, $args['object_types'], $args );
 		}
+	}
+
+	function add_meta_boxes() {
+		$meta_box = array(
+			'id' => Glossario::$slug . '_term_info',
+			'title' => __( 'Glossary term info', 'glossario' ),
+			'post_types' => array( $this->post_term ),
+			'context' => 'normal',
+			'priority' => 'high',
+			'fields' => array(
+				array(
+					'type' => 'text',
+					'id' => Glossario::$slug . '_original_term_singular',
+					'name' => __( 'Original term singular', 'glossario' ),
+					'desc' => __( 'Non-translated term in its singular form.', 'glossario' ),
+					'std' => ''
+				), array(
+					'type' => 'text',
+					'id' => Glossario::$slug . '_original_term_plural',
+					'name' => __( 'Original term plural', 'glossario' ),
+					'desc' => __( 'Non-translated term in its plural form.', 'glossario' ),
+					'std' => ''
+				), array(
+					'type' => 'text',
+					'id' => Glossario::$slug . '_term_singular',
+					'name' => __( 'Singular translation', 'glossario' ),
+					'desc' => __( 'Translated term in its singular form.', 'glossario' ),
+					'std' => ''
+				), array(
+					'type' => 'text',
+					'id' => Glossario::$slug . '_term_plural',
+					'name' => __( 'Plural translation', 'glossario' ),
+					'desc' => __( 'Translated term in its plural form.', 'glossario' ),
+					'std' => ''
+				), array(
+					'type' => 'textarea',
+					'id' => Glossario::$slug . '_translation_notes',
+					'name' => __( 'Translation notes', 'glossario' ),
+					'desc' => __( 'Optional notes or explanation about the translation above.' ),
+					'std' => '',
+				),
+			),
+		);
+		new Glossario_Metabox( $meta_box );
 	}
 
 }
