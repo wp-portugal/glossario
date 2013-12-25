@@ -60,7 +60,7 @@ class Glossario {
 				),
 				'has_archive' => true,
 				'menu_position' => null,
-				'supports' => array( 'title', 'comments' )
+				'supports' => array( 'comments' )
 			),
 			$this->post_pofile => array(
 				'labels' => array(
@@ -84,7 +84,7 @@ class Glossario {
 				'has_archive' => true,
 				'hierarchical' => false,
 				'menu_position' => null,
-				'supports' => array( 'title', 'thumbnail' )
+				'supports' => array( 'title', 'comments' )
 			)
 		);
 		foreach ( $post_types as $type => $args ) {
