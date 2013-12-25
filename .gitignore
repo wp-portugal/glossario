@@ -1,0 +1,34 @@
+# Production
+forum
+dev
+error.log
+wp/
+
+# Environments
+prod-config.php
+
+# WordPress
+wp-config-master.php
+wp/wp-content/uploads
+wp/wp-content/upgrade
+wp/sitemap*
+wp-content/debug.log
+wp-content/uploads
+wp-content/upgrade
+
+# Vagrant
+Vagrantfile
+.vagrant
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Composer
+vendor/
+composer.lock
+composer.phar
+
+# Grunt
+node_modules/
