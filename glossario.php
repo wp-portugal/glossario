@@ -10,6 +10,14 @@
 
 class Glossario {
 
+	var $slug = 'glossario';
+	var $textdomain = 'glossario';
+	var $post_term = 'glossario_term';
+	var $post_pofile = 'glossario_po_file';
+	var $tax_language = 'glossario_term_language';
+	var $tax_class = 'glossario_term_class';
+	var $tax_status = 'glossario_term_status';
+
 	function Glossario() {
 		add_action( 'init', array( $this, 'init' ) );
 	}
@@ -33,15 +41,15 @@ class Glossario {
 
 	function register_custom_post_types() {
 		$post_types = array(
-			'glossario_term' => array(
+			$this->post_term => array(
 				'labels' => array(
-					'name' => __( 'Glossary', 'glossario' ),
-					'singular_name' => __( 'Glossary', 'glossario' ),
-					'add_new' => __( 'Add new glossary term', 'glossario' ),
-					'add_new_item' => __( 'Add new glossary term', 'glossario' ),
-					'edit_item' => __( 'Edit glossary term', 'glossario' ),
-					'view_item' => __( 'View glossary term', 'glossario' ),
-					'search_items' => __( 'Search for glossary terms', 'glossario' ),
+					'name' => __( 'Glossary', $this->textdomain ),
+					'singular_name' => __( 'Glossary', $this->textdomain ),
+					'add_new' => __( 'Add new glossary term', $this->textdomain ),
+					'add_new_item' => __( 'Add new glossary term', $this->textdomain ),
+					'edit_item' => __( 'Edit glossary term', $this->textdomain ),
+					'view_item' => __( 'View glossary term', $this->textdomain ),
+					'search_items' => __( 'Search for glossary terms', $this->textdomain ),
 				),
 				'public' => true,
 				'publicly_queryable' => true,
@@ -55,15 +63,16 @@ class Glossario {
 				'menu_position' => null,
 				'supports' => array( 'title', 'comments' )
 			),
-			'glossario_po_file' => array(
+			$this->post_pofile => array(
 				'labels' => array(
-					'name' => __( 'PO file', 'glossario' ),
-					'singular_name' => __( 'PO files', 'glossario' ),
-					'add_new' => __( 'Add new PO file', 'glossario' ),
-					'add_new_item' => __( 'Add new PO file', 'glossario' ),
-					'edit_item' => __( 'Edit PO file', 'glossario' ),
-					'view_item' => __( 'View PO file', 'glossario' ),
-					'search_items' => __( 'Search for PO files', 'glossario' ),
+					'name' => __( 'PO file', $this->textdomain ),
+					'singular_name' => __( 'PO files', $this->textdomain ),
+					'menu_name' => __( 'PO files', $this->textdomain ),
+					'add_new' => __( 'Add new PO file', $this->textdomain ),
+					'add_new_item' => __( 'Add new PO file', $this->textdomain ),
+					'edit_item' => __( 'Edit PO file', $this->textdomain ),
+					'view_item' => __( 'View PO file', $this->textdomain ),
+					'search_items' => __( 'Search for PO files', $this->textdomain ),
 				),
 				'public' => true,
 				'publicly_queryable' => true,
@@ -86,51 +95,51 @@ class Glossario {
 
 	function register_custom_taxonomies() {
 		$taxonomies = array(
-			'glossario_language' => array(
+			$this->tax_language => array(
 				'object_types' => array( 'glossario_term', 'glossario_po_file' ),
 				'labels' => array(
-					'name' => __( 'Glossary languages', 'glossario' ),
-					'singular_name' => __( 'Glossary language', 'glossario' ),
-					'all_items' => __( 'All glossary languages', 'glossario' ),
-					'edit_item' => __( 'Edit glossary language', 'glossario' ),
-					'view_item' => __( 'View glossary language', 'glossario' ),
-					'update_item' => __( 'Update glossary language', 'glossario' ),
-					'add_new_item' => __( 'Add new glossary language', 'glossario' ),
-					'new_item_name' => __( 'New glossary language', 'glossario' ),
+					'name' => __( 'Glossary languages', $this->textdomain ),
+					'singular_name' => __( 'Glossary language', $this->textdomain ),
+					'all_items' => __( 'All glossary languages', $this->textdomain ),
+					'edit_item' => __( 'Edit glossary language', $this->textdomain ),
+					'view_item' => __( 'View glossary language', $this->textdomain ),
+					'update_item' => __( 'Update glossary language', $this->textdomain ),
+					'add_new_item' => __( 'Add new glossary language', $this->textdomain ),
+					'new_item_name' => __( 'New glossary language', $this->textdomain ),
 				),
 				'hierarchical' => true,
 				'show_ui' => true,
 				'query_var' => true,
 				'rewrite' => array( 'slug' => 'glossario/language' ),
 			),
-			'glossario_class' => array(
+			$this->tax_class => array(
 				'object_types' => array( 'glossario_term' ),
 				'labels' => array(
-					'name' => __( 'Morfology classes', 'glossario' ),
-					'singular_name' => __( 'Morfology class', 'glossario' ),
-					'all_items' => __( 'All morfology classes', 'glossario' ),
-					'edit_item' => __( 'Edit morfology class', 'glossario' ),
-					'view_item' => __( 'View morfology class', 'glossario' ),
-					'update_item' => __( 'Update morfology class', 'glossario' ),
-					'add_new_item' => __( 'Add new morfology class', 'glossario' ),
-					'new_item_name' => __( 'New morfology class', 'glossario' ),
+					'name' => __( 'Morfology classes', $this->textdomain ),
+					'singular_name' => __( 'Morfology class', $this->textdomain ),
+					'all_items' => __( 'All morfology classes', $this->textdomain ),
+					'edit_item' => __( 'Edit morfology class', $this->textdomain ),
+					'view_item' => __( 'View morfology class', $this->textdomain ),
+					'update_item' => __( 'Update morfology class', $this->textdomain ),
+					'add_new_item' => __( 'Add new morfology class', $this->textdomain ),
+					'new_item_name' => __( 'New morfology class', $this->textdomain ),
 				),
 				'hierarchical' => true,
 				'show_ui' => true,
 				'query_var' => true,
 				'rewrite' => array( 'slug' => 'glossario/class' ),
 			),
-			'glossario_status' => array(
+			$this->tax_status => array(
 				'object_types' => array( 'glossario_term' ),
 				'labels' => array(
-					'name' => __( 'Translation status', 'glossario' ),
-					'singular_name' => __( 'Translation status', 'glossario' ),
-					'all_items' => __( 'All glossary term status', 'glossario' ),
-					'edit_item' => __( 'Edit glossary term status', 'glossario' ),
-					'view_item' => __( 'View glossary term status', 'glossario' ),
-					'update_item' => __( 'Update glossary term status', 'glossario' ),
-					'add_new_item' => __( 'Add new glossary term status', 'glossario' ),
-					'new_item_name' => __( 'New glossary term status', 'glossario' ),
+					'name' => __( 'Translation status', $this->textdomain ),
+					'singular_name' => __( 'Translation status', $this->textdomain ),
+					'all_items' => __( 'All glossary term status', $this->textdomain ),
+					'edit_item' => __( 'Edit glossary term status', $this->textdomain ),
+					'view_item' => __( 'View glossary term status', $this->textdomain ),
+					'update_item' => __( 'Update glossary term status', $this->textdomain ),
+					'add_new_item' => __( 'Add new glossary term status', $this->textdomain ),
+					'new_item_name' => __( 'New glossary term status', $this->textdomain ),
 				),
 				'hierarchical' => true,
 				'show_ui' => true,
