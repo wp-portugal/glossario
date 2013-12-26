@@ -2,7 +2,7 @@
 
 Um plugin em WordPress que sirva como um glossário para traduções de termos e
 para a discussão colaborativa desses verbetes. [Siga a discussão
-inicial](http://participe.wp-brasil.org/2014/12/13/pessoal-voces-que-estao-nessa-vibe-de-fazer/).
+inicial](http://participe.wp-brasil.org/2013/12/13/pessoal-voces-que-estao-nessa-vibe-de-fazer/).
 
 ## Terminologia
 
