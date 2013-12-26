@@ -60,7 +60,7 @@ seguintes campos:
 #### Taxonomias envolvidas:
 
 * Idioma
-* Classes morfológica (artigo, substantivo, verbo, adjetivo)
+* Classes morfológicas (artigo, substantivo, verbo, adjetivo)
 * Estado da tradução (consolidado, aberto para sugestões)
 
 #### Comentários
