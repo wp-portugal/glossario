@@ -13,11 +13,11 @@ include( dirname( __FILE__ ) . '/glossario-metabox.php' );
 class Glossario {
 
 	public static $slug = 'glossario';
-	var $post_term = 'glossario_term';
-	var $post_pofile = 'glossario_po_file';
-	var $tax_language = 'glossario_term_language';
-	var $tax_class = 'glossario_term_class';
-	var $tax_status = 'glossario_term_status';
+	var $post_term      = 'glossario_term';
+	var $post_po_file   = 'glossario_po_file';
+	var $tax_language   = 'glossario_term_language';
+	var $tax_class      = 'glossario_term_class';
+	var $tax_status     = 'glossario_term_status';
 
 	function Glossario() {
 		add_action( 'init', array( $this, 'init' ) );
@@ -69,10 +69,10 @@ class Glossario {
 				'menu_position' => null,
 				'supports' => array( 'comments' )
 			),
-			$this->post_pofile => array(
+			$this->post_po_file => array(
 				'labels' => array(
-					'name' => __( 'PO file', 'glossario' ),
-					'singular_name' => __( 'PO files', 'glossario' ),
+					'name' => __( 'PO files', 'glossario' ),
+					'singular_name' => __( 'PO file', 'glossario' ),
 					'menu_name' => __( 'PO files', 'glossario' ),
 					'add_new' => __( 'Add new PO file', 'glossario' ),
 					'add_new_item' => __( 'Add new PO file', 'glossario' ),
